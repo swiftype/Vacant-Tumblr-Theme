@@ -20,8 +20,8 @@
 	<!-- Meta Tags -->
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	{block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
-				
-	<!-- Stylesheets -->
+
+        <!-- Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="http://static.tumblr.com/ubkenek/3sQlmxy8v/reset-min.css" />
 
 	<!-- JavaScript -->
@@ -300,6 +300,7 @@
 	<meta name="text:LetterBoxd Username" content=""/>
 	<meta name="text:Twitter Username" content=""/>
 	<meta name="text:Vimeo Username" content=""/>
+        <meta name="text:Swiftype Engine Key" content="" />				
 	<!-- <meta name="text:YouTube Username" content=""/>  -->
 		
 </head><!-- End Head -->
@@ -657,6 +658,25 @@
 		<div id="Copyright">This blog is powered by <a href="http://tumblr.com" title="Tumblr">Tumblr</a> and designed by <a href="http://cosnap.co.uk" title="The CoSnap website">CoSnap</a>.</div>
 			
 	</div><!-- End Page Wrapper -->
-	
+{block:IfSwiftypeEngineKey}
+  <div id="st-results-container"></div>
+  <script type="text/javascript">
+    var Swiftype = window.Swiftype || {};
+    (function() {
+      Swiftype.key = '{text:Swiftype Engine Key}';
+      Swiftype.inputElement = 'form[action=/search] input[type=text]';
+      Swiftype.resultContainingElement = '#st-results-container';
+      Swiftype.attachElement = 'form[action=/search] input[type=text]';
+      Swiftype.renderStyle = "overlay";
+    
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = "//swiftype.com/embed.js";
+      var entry = document.getElementsByTagName('script')[0];
+      entry.parentNode.insertBefore(script, entry);
+    }());
+  </script>   
+{/block:IfSwiftypeEngineKey}	
 </body><!-- End Body -->
 </html><!-- End HTML -->
